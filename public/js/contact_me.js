@@ -22,7 +22,7 @@ $(function() {
 
       $.ajax({
         url: "/sendEmail",
-        type: "GET",
+        type: "POST",
         data: {
           name: name,
           phone: phone,
