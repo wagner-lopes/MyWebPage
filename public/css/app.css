@@ -42,6 +42,7 @@ h2:after {
   border: 2px solid black;
   width: 100px;
   margin: 15px auto;
+  background: black;
 }
 
 /*START IMPORTING*/
@@ -124,6 +125,11 @@ h2:after {
   font-weight: 700;
 }
 
+.course-img {
+  max-height: 128px;
+  line-height: 2.5em;
+}
+
 .btn-xl {
   font-size: 18px;
   padding: 20px 40px;
@@ -159,6 +165,12 @@ h2:after {
 
 .hide-small-screens {
   display: none;
+}
+
+.course-description {
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 ::-moz-selection {
@@ -423,7 +435,7 @@ svg {
   margin: 0 auto;
   padding: 25px;
   text-align: center;
-  background-color: #f8f9fa!important;
+  /*background-color: #f8f9fa!important;*/
 }
 
 #books .portfolio-item .portfolio-caption h4 {
@@ -662,7 +674,7 @@ svg {
 }
 
 .timeline > li:last-child {
-  margin-bottom: 0;
+  margin-bottom: 50px;
 }
 
 .timeline .timeline-heading h4 {
