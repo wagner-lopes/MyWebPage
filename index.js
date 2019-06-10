@@ -86,6 +86,6 @@ app.post("/sendEmail", function(req, res){
  res.render("index"); 
 });
 
-app.listen(80, process.env.IP, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Server started!"); 
 });
