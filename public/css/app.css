@@ -297,6 +297,12 @@ header.masthead .intro-text .intro-heading {
   justify-content: space-between;
 }
 
+#certifications ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 svg {
   margin-left: -20px;
 }
@@ -309,7 +315,7 @@ svg {
     display: unset;
   }
   .footer ul.quicklinks {
-    font-size: 90%;
+    font-size: 1.05rem;
     margin-top: 0px;
   }
 
@@ -382,6 +388,19 @@ svg {
 }
 
 #technologies {
+  background-image: url(../img/bg-qualificacoes.jpg);
+  background-attachment: fixed;
+  bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: top center;
+  background-size: cover;
+  line-height: 1.7em;
+}
+
+#certifications {
   background-image: url(../img/bg-qualificacoes.jpg);
   background-attachment: fixed;
   bottom: 0;
