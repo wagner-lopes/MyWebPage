@@ -183,10 +183,14 @@ h2:after {
   display: none;
 }
 
-.description {
+.column-description {
   text-align: justify;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.justify {
+  text-align: justify;
 }
 
 ::-moz-selection {
@@ -778,7 +782,7 @@ svg {
     min-height: 134px;
   }
   .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
+    padding: 0 20px 20px 50px;
   }
   .timeline > li .timeline-image {
     width: 170px;
