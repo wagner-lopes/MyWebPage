@@ -100,6 +100,6 @@ function sendEmail (from, to, subject, text) {
   });
 }
 
-app.listen(80, process.env.IP, function(){
+app.listen(process.env.IP, process.env.IP, function(){
   console.log("Server started!"); 
 });
