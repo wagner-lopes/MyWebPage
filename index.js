@@ -27,16 +27,16 @@ app.get("/sendEmail", function(req, res){
     var transporter = nodeMailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'hi.wagnerlopes@gmail.com',
+        user: 'wagnerlopes.au@gmail.com',
         pass: 'Testparm#3'
       }
     });
     
     var mailOptions = {
       from: req.query.email,
-      to: 'hi.wagnerlopes@gmail.com',
+      to: 'wagnerlopes.au@gmail.com',
       subject: req.query.name + ' - ' + req.query.phone,
-      text: req.query.message
+      text: req.query.message + "<br>Email: " + req.query.email
     };
     
     transporter.sendMail(mailOptions, function(error, info){
@@ -52,15 +52,30 @@ app.get("/sendEmail", function(req, res){
 
 //SEND EMAIL
 app.post("/sendEmail", function(req, res){
-    
-  //Remember how to receive the data sent by the user via POST in 'req'
-  //in the front-end javasctipt, update the screen to give the feedback to 
-  //the user in the case of success in 'res'
   
+  //Send email to wagnerlopes.au@gmail.com
+  var from = req.body.email;
+  var to = 'wagnerlopes.au@gmail.com';
+  var subject = req.body.name + ' - ' + req.body.phone;
+  var text = req.body.message + "\n\nEmail: " + req.body.email;
+  sendEmail (from, to, subject, text);
+
+  //Send feedback email to the client
+  from = 'wagnerlopes.au@gmail.com';
+  to = req.body.email;
+  subject = 'Contact - Wagner Lopes';
+  text = "Hi " + req.body.firstName + ",\n\nThank you for contacting me!\n\nI will analyze your email and get back to you as soon as possible, ok?\n\nYour Message: \n\n======\n" + req.body.message + "\n=====\n\n\nBest Regards!\nWagner Lopes\nwagnerlopes.au@gmail.com\n+61 451 631 417";
+
+  sendEmail (from, to, subject, text);
+  
+  res.render("index"); 
+});
+
+function sendEmail (from, to, subject, text) {
   var transporter = nodeMailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'hi.wagnerlopes@gmail.com',
+      user: 'wagnerlopes.au@gmail.com',
       pass: 'Testparm#3'
     },
     tls:{
@@ -69,10 +84,11 @@ app.post("/sendEmail", function(req, res){
   });
   
   var mailOptions = {
-    from: req.body.email,
-    to: 'hi.wagnerlopes@gmail.com',
-    subject: req.body.name + ' - ' + req.body.phone,
-    text: req.body.message
+    from: from,
+    to: to,
+    subject: subject,
+    text: text,
+    replyTo: from
   };
   
   transporter.sendMail(mailOptions, function(error, info){
@@ -82,10 +98,8 @@ app.post("/sendEmail", function(req, res){
       console.log('Email sent: ' + info.response);
     }
   });
-  
- res.render("index"); 
-});
+}
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(80, process.env.IP, function(){
   console.log("Server started!"); 
 });
