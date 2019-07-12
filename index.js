@@ -81,6 +81,13 @@ function sendEmail (from, to, subject, text) {
     tls:{
       rejectUnauthorized: false
     }
+    // host: 'smtp.zoho.com',
+    // port: 465,
+    // secure: true, // use SSL
+    // auth: {
+    //     user: 'me@wagnerlopes.com.au',
+    //     pass: 'Testparm#3'
+    // }
   });
   
   var mailOptions = {
