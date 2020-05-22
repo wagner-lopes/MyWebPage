@@ -27,8 +27,8 @@ app.get("/sendEmail", function(req, res){
     var transporter = nodeMailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'wagnerlopes.au@gmail.com',
-        pass: 'Testparm#3'
+        user: process.env.EMAIL,
+        pass: process.env.PASS
       }
     });
     
@@ -52,7 +52,7 @@ app.get("/sendEmail", function(req, res){
 
 //SEND EMAIL
 app.post("/sendEmail", function(req, res){
-  
+
   //Send email to wagnerlopes.au@gmail.com
   var from = req.body.email;
   var to = 'wagnerlopes.au@gmail.com';
@@ -108,5 +108,5 @@ function sendEmail (from, to, subject, text) {
 }
 
 app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("Server started!"); 
+  console.log(`Server started on: http://localhost:${process.env.PORT} / ${process.env.EMAIL} / ${process.env.PASS}`); 
 });
