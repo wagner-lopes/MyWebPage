@@ -75,19 +75,12 @@ function sendEmail (from, to, subject, text) {
   var transporter = nodeMailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'wagnerlopes.au@gmail.com',
-      pass: 'Testparm#3'
+      user: process.env.EMAIL,
+      pass: process.env.PASS
     },
     tls:{
       rejectUnauthorized: false
     }
-    // host: 'smtp.zoho.com',
-    // port: 465,
-    // secure: true, // use SSL
-    // auth: {
-    //     user: 'me@wagnerlopes.com.au',
-    //     pass: 'Testparm#3'
-    // }
   });
   
   var mailOptions = {
